@@ -1,6 +1,3 @@
-from pickle import TRUE
-
-
 name = input("Enter file name:")
 
 try:
@@ -12,9 +9,11 @@ except:
 wordsCount = dict()
 
 for line in fileHandle:
-    words = line.strip().split(" ")
-    for word in words:
-        wordsCount[word] = wordsCount.get(word, 0) + 1
+    line = line.rstrip()
+    if len(line) > 0:
+        words = line.split(" ")
+        for word in words:
+            wordsCount[word] = wordsCount.get(word, 0) + 1
 
 wordsCountList = list()
 
